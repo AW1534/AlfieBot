@@ -149,10 +149,12 @@ async def clear(ctx, amount=5):
 
 @bot.command()
 async def info(ctx):
-    embed = discord.Embed(title="Info", color=config.errorColor)
+    embed = discord.Embed(title="Info", color=config.infoColor)
     embed.add_field(name="Version", value=config.version)
-    embed.add_field(name="Author", value="<@!{}>".format(config.authorID))
+    embed.add_field(name="Author", value="<@{}>".format(config.authorID))
     embed.add_field(name="GitHub", value="https://github.com/AW1534/AlfieBot")
+    embed.add_field(name="Note", value=f"Discord bot made custom by <@{config.authorID}> for <@{config.ownerID}>. If you would like your own bot, have spotted a bug, or have any quetions please contact the author.")
+    await ctx.send(embed=embed)
 
 bot.remove_command("help")
 @bot.command()
